@@ -1,0 +1,136 @@
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 10px; /* Reduced padding for a narrower navbar */
+  background-color: yellow;
+  color: black;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 0;
+  border-radius: 0; /* No border-radius for the navbar */
+}
+
+.navbar-logo {
+  font-size: 1.2em; /* Slightly smaller logo font size */
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  border-radius: 50%; /* Rounded corners for logo */
+}
+
+.navbar-logo img { 
+  width: 80px; /* Reduced logo size */
+  height: 80px;
+  border-radius: 50%; /* Ensure the logo is circular */
+}
+
+.navbar-links {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  flex-grow: 1;
+  justify-content: center; /* Center align links horizontally */
+}
+
+.navbar-links li {
+  margin-left: 15px; /* Reduced margin between items */
+}
+
+.navbar-links a {
+  text-decoration: none;
+  color: black;
+  font-size: 0.9em; /* Slightly smaller font size for links */
+}
+
+.navbar-links a:hover {
+  text-decoration: underline;
+  color: blue;
+}
+
+/* Hamburger button styles */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.hamburger div {
+  background-color: black;
+  height: 3px;
+  width: 25px;
+  margin: 3px 0;
+  transition: 0.3s;
+}
+
+/* Responsive design for mobile devices */
+@media (max-width: 1024px) {
+  .navbar {
+      flex-direction: column;
+      align-items: center; /* Center items horizontally */
+      padding: 10px;
+  }
+
+  .navbar-links {
+      flex-direction: column;
+      width: 100%;
+      margin-top: 10px; /* Add space between logo and links */
+      justify-content: center; /* Center align links vertically */
+      display: none; /* Initially hide the links */
+  }
+
+  .navbar-links.show {
+      display: flex; /* Show the links when toggled */
+  }
+
+  .navbar-links li {
+      margin: 10px 0; /* Space between items vertically */
+  }
+
+  .hamburger {
+      display: flex; /* Show hamburger menu button on mobile */
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: auto;
+      bottom: 0;
+      width: 200px; /* Reduced width for side navbar */
+      height: 100vh; /* Full viewport height */
+      border-radius: 0; /* No border-radius for side navbar */
+      flex-direction: column;
+      align-items: flex-start; /* Align items to start */
+      padding: 15px; /* Reduced padding */
+      z-index: 1000;
+      overflow-y: auto; /* Allow scrolling if content overflows */
+  }
+
+  .navbar-logo {
+      margin-bottom: 20px; /* Space below the logo */
+  }
+
+  .navbar-links {
+      flex-direction: column;
+      width: 100%;
+      margin-top: 10px; /* Add space between logo and links */
+      justify-content: center; /* Center align links vertically */
+  }
+
+  .navbar-links li {
+      margin: 10px 0; /* Space between items vertically */
+  }
+}
