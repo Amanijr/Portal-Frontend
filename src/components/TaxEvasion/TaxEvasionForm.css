@@ -1,0 +1,47 @@
+.tax-evasion-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    margin-top: 130px;
+  }
+  
+  .tax-evasion-form h2 {
+    margin-bottom: 16px;
+    text-align: center;
+  }
+  
+  .tax-evasion-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+  }
+  
+  .tax-evasion-form input,
+  .tax-evasion-form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  .tax-evasion-form button {
+    width: 100%;
+    padding: 12px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .tax-evasion-form button:hover {
+    background-color: #218838;
+  }
+  

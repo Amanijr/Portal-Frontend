@@ -1,36 +1,36 @@
-body {
-  margin: 0;
-  font-family: 'Poppins', sans-serif;
-}
-
+/* Navbar styles */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 5px 10px; /* Reduced padding for a narrower navbar */
-  background-color: yellow;
+  padding: 5px 10px;
   color: black;
   width: 100%;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 0;
-  border-radius: 0; /* No border-radius for the navbar */
+  /* z-index: 1000; */
+  border-radius: 0;
+  background-color:yellow; /* Default opaque background */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08); /* Box shadow */
+  transition: background-color 0.3s, box-shadow 0.3s; /* Smooth transition for background color and box shadow */
 }
 
 .navbar-logo {
-  font-size: 1.2em; /* Slightly smaller logo font size */
+  font-size: 1.2em;
   font-weight: bold;
   display: flex;
   align-items: center;
-  border-radius: 50%; /* Rounded corners for logo */
+  border-radius: 50%;
+  border: 0.005px solid #333; /* Dark border for the logo */
 }
 
-.navbar-logo img { 
-  width: 80px; /* Reduced logo size */
+.navbar-logo img {
+  width: 80px;
   height: 80px;
-  border-radius: 50%; /* Ensure the logo is circular */
+  border-radius: 50%;
+  border: 0.005px solid #333; /* Dark border for the image */
 }
 
 .navbar-links {
@@ -39,17 +39,17 @@ body {
   margin: 0;
   padding: 0;
   flex-grow: 1;
-  justify-content: center; /* Center align links horizontally */
+  justify-content: center;
 }
 
 .navbar-links li {
-  margin-left: 15px; /* Reduced margin between items */
+  margin-left: 15px;
 }
 
 .navbar-links a {
   text-decoration: none;
   color: black;
-  font-size: 0.9em; /* Slightly smaller font size for links */
+  font-size: 1em;
 }
 
 .navbar-links a:hover {
@@ -76,61 +76,69 @@ body {
 /* Responsive design for mobile devices */
 @media (max-width: 1024px) {
   .navbar {
-      flex-direction: column;
-      align-items: center; /* Center items horizontally */
-      padding: 10px;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
   }
 
   .navbar-links {
-      flex-direction: column;
-      width: 100%;
-      margin-top: 10px; /* Add space between logo and links */
-      justify-content: center; /* Center align links vertically */
-      display: none; /* Initially hide the links */
+    flex-direction: column;
+    width: 100%;
+    margin-top: 10px;
+    justify-content: center;
+    display: none;
   }
 
   .navbar-links.show {
-      display: flex; /* Show the links when toggled */
+    display: flex;
   }
 
   .navbar-links li {
-      margin: 10px 0; /* Space between items vertically */
+    margin: 10px 0;
   }
 
   .hamburger {
-      display: flex; /* Show hamburger menu button on mobile */
+    display: flex;
   }
 }
 
 @media (max-width: 768px) {
   .navbar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: auto;
-      bottom: 0;
-      width: 200px; /* Reduced width for side navbar */
-      height: 100vh; /* Full viewport height */
-      border-radius: 0; /* No border-radius for side navbar */
-      flex-direction: column;
-      align-items: flex-start; /* Align items to start */
-      padding: 15px; /* Reduced padding */
-      z-index: 1000;
-      overflow-y: auto; /* Allow scrolling if content overflows */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: auto;
+    bottom: 0;
+    width: 200px;
+    height: 100vh;
+    border-radius: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px;
+    z-index: 1000;
+    overflow-y: auto;
+    background-color: rgba(248, 248, 248, 0.8); /* Semi-transparent background */
+    box-shadow: none; /* Remove box shadow */
   }
 
   .navbar-logo {
-      margin-bottom: 20px; /* Space below the logo */
+    margin-bottom: 20px;
   }
 
   .navbar-links {
-      flex-direction: column;
-      width: 100%;
-      margin-top: 10px; /* Add space between logo and links */
-      justify-content: center; /* Center align links vertically */
+    flex-direction: column;
+    width: 100%;
+    margin-top: 10px;
+    justify-content: center;
   }
 
   .navbar-links li {
-      margin: 10px 0; /* Space between items vertically */
+    margin: 10px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    background-color: rgba(248, 248, 248, 0); /* Fully transparent background */
   }
 }

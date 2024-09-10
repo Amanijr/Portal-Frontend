@@ -9,8 +9,8 @@ export default function Validation(values) {
   
     if (!values.password) {
       errors.password = "Password is required!";
-    } else if (values.password.length < 10 || values.password.length > 12) {
-      errors.password = "Password must be between 10 and 12 characters long";
+    } else if (values.password.length < 5 || values.password.length > 12) {
+      errors.password = "Password must be between 5 and 10 characters long";
     } 
   
     return errors;

@@ -1,0 +1,45 @@
+/* CardGrid.css */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 16px;
+    padding-top: 150px; 
+    /* z-index: 50; */
+  }
+  .header h1{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Align to the top */
+    width: 100%;
+    height: 60px; /* Set a specific height for the header */
+    position: fixed; /* Ensure the header stays fixed at the top */
+    top: 0;
+    left: 0;
+    
+    /*background-color: yellow; *//* Example background color */
+    /* padding: 0 16px; Optional padding */
+    padding-top: 100px;
+  }
+  
+  @media (max-width: 768px) {
+    .card-grid {
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      padding: 8px;
+      padding-top: 68px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .card-grid {
+      grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+      padding: 4px;
+      padding-top: 64px;
+    }
+   
+  }
+  

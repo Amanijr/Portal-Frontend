@@ -3,14 +3,15 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
 import './registration.css'; // Import your stylesheet
+import { Navigate } from 'react-router-dom';
 
 // Validation Schema
 const validationSchema = Yup.object({
-  firstName: Yup.string().required('First Name is required'),
-  lastName: Yup.string().required('Last Name is required'),
+  firstname: Yup.string().required('First Name is required'),
+  lastname: Yup.string().required('Last Name is required'),
   email: Yup.string().email('Invalid email address').required('Email is required'),
   password: Yup.string()
-    .min(10, 'Password must be at least 10 characters')
+    .min(5, 'Password must be at least 5 characters')
     .matches(/[a-zA-Z]/, 'Password must contain both letters and numbers')
     .matches(/[0-9]/, 'Password must contain both letters and numbers')
     .matches(/[\W_]/, 'Password must contain a special character')
@@ -20,22 +21,35 @@ const validationSchema = Yup.object({
 });
 
 const RegistrationForm = () => {
-  const handleSubmit = async (values) => {
+  const [registrationSuccess, setRegistrationSuccess] = React.useState(false);
+
+  const handleSubmit = async (values, { setSubmitting }) => {
     try {
-      await axios.post('http://localhost:8080/api/save', values);
-      alert('Registration successful!');
+      await axios.post('http://localhost:8081/api/v1/user/register', values, {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+      setRegistrationSuccess(true);
     } catch (error) {
-      alert('Registration failed!');
+      console.error('Registration error:', error);
+      alert('Registration failed! Please check the console for details.');
+    } finally {
+      setSubmitting(false);
     }
   };
+
+  if (registrationSuccess) {
+    return <Navigate to="#login" />;
+  }
 
   return (
     <div className="registration-form">
       <h1>Registration Form</h1>
       <Formik
         initialValues={{
-          firstName: '',
-          lastName: '',
+          firstname: '',
+          lastname: '',
           email: '',
           password: '',
           tin: '',
@@ -44,45 +58,49 @@ const RegistrationForm = () => {
         validationSchema={validationSchema}
         onSubmit={handleSubmit}
       >
-        <Form>
-          <div className="form-group">
-            <label htmlFor="firstName">First Name</label>
-            <Field type="text" id="firstName" name="firstName" />
-            <ErrorMessage name="firstName" component="div" className="error" />
-          </div>
+        {({ isSubmitting }) => (
+          <Form>
+            <div className="form-group">
+              <label htmlFor="firstname">First Name</label>
+              <Field type="text" id="firstname" name="firstname" />
+              <ErrorMessage name="firstname" component="div" className="error" />
+            </div>
 
-          <div className="form-group">
-            <label htmlFor="lastName">Last Name</label>
-            <Field type="text" id="lastName" name="lastName" />
-            <ErrorMessage name="lastName" component="div" className="error" />
-          </div>
+            <div className="form-group">
+              <label htmlFor="lastname">Last Name</label>
+              <Field type="text" id="lastname" name="lastname" />
+              <ErrorMessage name="lastname" component="div" className="error" />
+            </div>
 
-          <div className="form-group">
-            <label htmlFor="email">Email</label>
-            <Field type="email" id="email" name="email" />
-            <ErrorMessage name="email" component="div" className="error" />
-          </div>
+            <div className="form-group">
+              <label htmlFor="email">Email</label>
+              <Field type="email" id="email" name="email" />
+              <ErrorMessage name="email" component="div" className="error" />
+            </div>
 
-          <div className="form-group">
-            <label htmlFor="password">Password</label>
-            <Field type="password" id="password" name="password" />
-            <ErrorMessage name="password" component="div" className="error" />
-          </div>
+            <div className="form-group">
+              <label htmlFor="password">Password</label>
+              <Field type="password" id="password" name="password" />
+              <ErrorMessage name="password" component="div" className="error" />
+            </div>
 
-          <div className="form-group">
-            <label htmlFor="tin">TIN</label>
-            <Field type="text" id="tin" name="tin" />
-            <ErrorMessage name="tin" component="div" className="error" />
-          </div>
+            <div className="form-group">
+              <label htmlFor="tin">TIN</label>
+              <Field type="text" id="tin" name="tin" />
+              <ErrorMessage name="tin" component="div" className="error" />
+            </div>
 
-          <div className="form-group">
-            <label htmlFor="nin">NIN</label>
-            <Field type="text" id="nin" name="nin" />
-            <ErrorMessage name="nin" component="div" className="error" />
-          </div>
+            <div className="form-group">
+              <label htmlFor="nin">NIN</label>
+              <Field type="text" id="nin" name="nin" />
+              <ErrorMessage name="nin" component="div" className="error" />
+            </div>
 
-          <button type="submit">Register</button>
-        </Form>
+            <button type="submit" disabled={isSubmitting}>
+              {isSubmitting ? 'Submitting...' : 'Register'}
+            </button>
+          </Form>
+        )}
       </Formik>
     </div>
   );

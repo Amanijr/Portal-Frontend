@@ -1,0 +1,121 @@
+.Tin-container {
+  display: flex;
+  flex-direction: row; /* Arrange containers horizontally */
+  align-items: flex-start; /* Align items to the start */
+  justify-content: center; /* Center the containers horizontally */
+  padding: 20px;
+  padding-top: 0px;
+  margin-top: 150px;
+  margin-bottom: 150px;
+  gap: 20px; /* Add some space between the containers */ 
+  /* border: #333; */
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+   max-width: 800px;
+   width: 100%; */
+}
+
+.slide-container {
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+  /* padding-top: 60px; */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-right: 0;
+}
+
+.each-slide img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.Tin-content {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  width: 100%;
+  text-align: justify;
+  margin-top: 30px;
+  margin-right: 0;
+}
+
+.Tin-content h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.Tin-content form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Tin-content form > div {
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.Tin-content label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+  color: #333;
+}
+
+.Tin-content input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.Tin-content button {
+  background-color: yellow;
+  color: black;
+  border: none;
+  border-radius: 30px;
+  padding: 12px 25px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: background-color 0.3s;
+}
+
+.Tin-content button:hover {
+  background-color: #ffcc00;
+}
+
+.Tin-content h3 {
+  margin-top: 20px;
+  color: #333;
+}
+
+@media (max-width: 768px) {
+  .Tin-container {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .Tin-content {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .Tin-content {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .Tin-content input, .Tin-content button {
+    font-size: 14px;
+    padding: 8px;
+  }
+}

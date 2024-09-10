@@ -3,8 +3,10 @@ import './App.css'
 import { HashRouter as Router,Routes,Route } from 'react-router-dom';
 import Home from './pages/home';
 import Services from './pages/services';
-import Contacts from './pages/contacts';
+import Tin from './pages/Tin';
 import Layout from './layout';
+import TaxEvasionForm from './components/TaxEvasion/TaxEvationForm';
+import TaxEvasion from './pages/TaxEvasion';
 function App() {
   return (
     <div className='App'>
@@ -13,7 +15,9 @@ function App() {
           <Route element = {<Layout/>}>
           <Route path='/' element = {<Home/>} />
           <Route path='/services' element = {<Services/>} />
-          <Route path='/contacts' element = {<Contacts/>} />
+          <Route path='/Tin' element = {<Tin/>} />
+          
+            <Route path='/TaxEvasion' element={<TaxEvasion/>} />
           </Route>
          
         </Routes>

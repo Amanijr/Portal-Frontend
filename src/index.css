@@ -7,7 +7,7 @@
   box-sizing:border-box;
 }
 body{
-  background:linear-gradient(rgba(8,0,58,0.7),rgba(8, 0, 58, 0.7)), url('assets/image4.jpg');
+  background: #f2f2f2;;
   font-family: "Poppins", sans-serif;
 }
 a{
@@ -18,6 +18,7 @@ a{
 .navbar{
   padding-left: 3%;
   padding-right: 10%;
+  z-index: 1000;
 }
 .btn{
   padding: 14px 25px;
